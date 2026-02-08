@@ -79,7 +79,8 @@ int main(int argc, char* argv[]) {
         }
 
         if (options.empty()) {
-            options.insert_range(std::vector{Option::c, Option::l, Option::w});
+            // TODO: 
+            // options.insert_range(std::vector{Option::c, Option::l, Option::w});
         }
 
         // Inputs

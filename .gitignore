@@ -1,5 +1,7 @@
 # build files
-out/
+out*
+build*
+CMakeUserPresets*
 
 # vs files
 .vs/
