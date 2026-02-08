@@ -1,23 +1,30 @@
 ﻿cmake_minimum_required(VERSION 3.26)
 
-project(wc LANGUAGES CXX)
+project(json LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+find_package(spdlog REQUIRED)
 
-add_executable (wc CodingChallenges/wc/wc.cpp)
+# add_executable (wc CodingChallenges/wc/wc.cpp)
+add_executable (json CodingChallenges/json-parser/json.cpp)
 
-target_compile_options(wc PRIVATE
+target_include_directories(json 
+    PUBLIC spdlog::spdlog
+)
+
+
+target_compile_options(json PRIVATE
     $<$<CXX_COMPILER_ID:MSVC>:/W4 /permissive->
     $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wpedantic>
 )
 
-target_include_directories(wc PRIVATE
+target_include_directories(json PRIVATE
     ${PROJECT_SOURCE_DIR}/include
 )
 
-target_compile_definitions(wc PRIVATE
+target_compile_definitions(json PRIVATE
     $<$<CONFIG:Debug>:DEBUG>
 )
 
