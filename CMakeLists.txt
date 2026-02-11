@@ -19,7 +19,11 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 find_package(spdlog REQUIRED)
 
 # add_executable (wc src/wc/wc.cpp)
-add_executable (json src/json-parser/json.cpp)
+add_executable (json 
+  src/json-parser/json.cpp
+  src/json-parser/lexer.cpp
+  src/json-parser/parser.cpp
+)
 
 target_link_libraries(json PUBLIC
     spdlog::spdlog
